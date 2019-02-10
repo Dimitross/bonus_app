@@ -24,14 +24,13 @@ class StartScreen extends StatefulWidget {
     return StartScreenState();
   }
 }
+
 class StartScreenState extends State<StartScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: newAppBar(),
-      body: Container(
+        body: Container(
           child: SingleChildScrollView(
             child: Container(
               child: Column(
@@ -46,24 +45,23 @@ class StartScreenState extends State<StartScreen> {
               ),
             ),
           ),
-      ),
-    bottomNavigationBar: NewBottomAppBar(),
-    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    floatingActionButton: new FloatingActionButton(
-      onPressed: () => {},
-      elevation: 2,
-      backgroundColor: Colors.red,
-      //foregroundColor: Colors.white,
-      child: SvgPicture.asset(
-        'assets/qrcode.svg',
-        semanticsLabel: 'Scan QRCode',
-        height: 100.0,
-        width: 100.0,
-        fit: BoxFit.cover,
-        color: Colors.black87,
-        allowDrawingOutsideViewBox: true,
-      ),
-    )
-    );
+        ),
+        bottomNavigationBar: NewBottomAppBar(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: new FloatingActionButton(
+          onPressed: () => {},
+          elevation: 2,
+          backgroundColor: Colors.red,
+          //foregroundColor: Colors.white,
+          child: SvgPicture.asset(
+            'assets/qrcode.svg',
+            semanticsLabel: 'Scan QRCode',
+            height: 100.0,
+            width: 100.0,
+            fit: BoxFit.cover,
+            color: Colors.black87,
+            allowDrawingOutsideViewBox: true,
+          ),
+        ));
   }
 }

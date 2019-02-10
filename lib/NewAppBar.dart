@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-newAppBar(){
+newAppBar() {
   return AppBar(
     backgroundColor: Colors.white,
     title: Container(
@@ -11,11 +11,13 @@ newAppBar(){
         children: <Widget>[
           Row(
             children: <Widget>[
-              Icon(Icons.pin_drop,
+              Icon(
+                Icons.pin_drop,
                 size: 40.0,
                 color: Colors.black87,
               ),
-              Text('Minsk',
+              Text(
+                'Minsk',
                 style: TextStyle(
                   color: Colors.black87,
                 ),
@@ -24,7 +26,8 @@ newAppBar(){
           ),
           Row(
             children: <Widget>[
-              Icon(Icons.search,
+              Icon(
+                Icons.search,
                 size: 40.0,
                 color: Colors.black87,
               )

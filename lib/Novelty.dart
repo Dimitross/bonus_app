@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class Novetly extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -9,18 +8,17 @@ class Novetly extends StatefulWidget {
   }
 }
 
-class NovetlyState extends State<Novetly>{
-
+class NovetlyState extends State<Novetly> {
   ScrollController _controller;
   List<String> novetlyList = [
-   "assets/novelty/File1.jpg",
-   "assets/novelty/File2.jpg",
-   "assets/novelty/File3.jpeg",
-   "assets/novelty/File4.jpg",
-   "assets/novelty/File5.jpg",
-   "assets/novelty/File6.jpg",
-   "assets/novelty/File7.jpg",
-   "assets/novelty/File9.jpg",
+    "assets/novelty/File1.jpg",
+    "assets/novelty/File2.jpg",
+    "assets/novelty/File3.jpeg",
+    "assets/novelty/File4.jpg",
+    "assets/novelty/File5.jpg",
+    "assets/novelty/File6.jpg",
+    "assets/novelty/File7.jpg",
+    "assets/novelty/File9.jpg",
   ];
 
   @override
@@ -36,11 +34,9 @@ class NovetlyState extends State<Novetly>{
           padding: EdgeInsets.only(left: 20.0),
           child: Row(
             children: <Widget>[
-              Text('Novetly',
-                style: TextStyle(
-                    fontSize: 55.0,
-                    fontWeight: FontWeight.bold
-                ),
+              Text(
+                'Novetly',
+                style: TextStyle(fontSize: 55.0, fontWeight: FontWeight.bold),
               ),
             ],
           ),
@@ -52,24 +48,23 @@ class NovetlyState extends State<Novetly>{
             itemCount: novetlyList.length,
             shrinkWrap: true,
             scrollDirection: Axis.vertical,
-            itemBuilder: (BuildContext context, int index){
+            itemBuilder: (BuildContext context, int index) {
               return Column(
-                children: <Widget>[
-                  NovetlyCard(novetlyList[index]),
-                  Divider()
-                ],
+                children: <Widget>[NovetlyCard(novetlyList[index]), Divider()],
               );
             },
           ),
         )
-      ] ,
+      ],
     );
   }
 }
 
 class NovetlyCard extends StatelessWidget {
   String picPath;
+
   NovetlyCard(this.picPath);
+
   @override
   Widget build(BuildContext context) {
     return Container(

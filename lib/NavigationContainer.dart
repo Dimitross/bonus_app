@@ -29,38 +29,38 @@ class NavigationBarState extends State<NavigationBar> {
   }
 }
 
-navigationHero(icon, label, fontSize, radius){
+navigationHero(icon, label, fontSize, radius) {
   return Column(
-      children: <Widget>[
-        Hero(
-            tag: label,
-            child: Column(
-              children: <Widget>[
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(radius)),
-                      border: Border.all(width: 2.0, color: Colors.black54)),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white,
-                    child: Icon(
-                      icon,
-                      size: radius * 1.5,
-                      color: Colors.black87,
-                    ),
-                    radius: radius,
+    children: <Widget>[
+      Hero(
+          tag: label,
+          child: Column(
+            children: <Widget>[
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(radius)),
+                    border: Border.all(width: 2.0, color: Colors.black54)),
+                child: CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: Icon(
+                    icon,
+                    size: radius * 1.5,
+                    color: Colors.black87,
                   ),
-                )
-              ],
-            )),
-        Container(
-          padding: EdgeInsets.only(top: 12.0),
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: fontSize,
-            ),
+                  radius: radius,
+                ),
+              )
+            ],
+          )),
+      Container(
+        padding: EdgeInsets.only(top: 12.0),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: fontSize,
           ),
-        )
-      ],
+        ),
+      )
+    ],
   );
 }
