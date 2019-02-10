@@ -10,8 +10,18 @@ class Novetly extends StatefulWidget {
 }
 
 class NovetlyState extends State<Novetly>{
+
   ScrollController _controller;
-  List<int> novetlyList = [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9];
+  List<String> novetlyList = [
+   "assets/novelty/File1.jpg",
+   "assets/novelty/File2.jpg",
+   "assets/novelty/File3.jpeg",
+   "assets/novelty/File4.jpg",
+   "assets/novelty/File5.jpg",
+   "assets/novelty/File6.jpg",
+   "assets/novelty/File7.jpg",
+   "assets/novelty/File9.jpg",
+  ];
 
   @override
   void initState() {
@@ -45,7 +55,7 @@ class NovetlyState extends State<Novetly>{
             itemBuilder: (BuildContext context, int index){
               return Column(
                 children: <Widget>[
-                  NovetlyCard(),
+                  NovetlyCard(novetlyList[index]),
                   Divider()
                 ],
               );
@@ -58,12 +68,19 @@ class NovetlyState extends State<Novetly>{
 }
 
 class NovetlyCard extends StatelessWidget {
+  String picPath;
+  NovetlyCard(this.picPath);
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height / 4,
       decoration: BoxDecoration(
+        image: new DecorationImage(
+          fit: BoxFit.cover,
+          alignment: FractionalOffset.topCenter,
+          image: new AssetImage(picPath),
+        ),
         color: Colors.blueGrey,
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
       ),

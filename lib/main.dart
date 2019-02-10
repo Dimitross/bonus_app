@@ -1,8 +1,11 @@
-import 'package:bonus_app/NavigationContainer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:bonus_app/NavigationContainer.dart';
 import 'package:bonus_app/SliderCashBacks.dart';
 import 'package:bonus_app/Novelty.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:bonus_app/NewBottomAppBar.dart';
+import 'package:bonus_app/NewAppBar.dart';
 
 void main() => runApp(Main());
 
@@ -23,79 +26,44 @@ class StartScreen extends StatefulWidget {
 }
 class StartScreenState extends State<StartScreen> {
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Row(
+        appBar: newAppBar(),
+      body: Container(
+          child: SingleChildScrollView(
+            child: Container(
+              child: Column(
                 children: <Widget>[
-                  Icon(Icons.pin_drop,
-                    size: 40.0,
-                    color: Colors.black87,
+                  Container(
+                    margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
+                    child: SliderCashBacks(),
                   ),
-                  Text('Minsk',
-                    style: TextStyle(
-                      color: Colors.black87,
-                    ),
-                  )
+                  NavigationBar(),
+                  Novetly(),
                 ],
               ),
-              Row(
-                children: <Widget>[
-                  Icon(Icons.search,
-                    size: 40.0,
-                    color: Colors.black87,
-                  )
-                ],
-              )
-            ],
+            ),
           ),
-        ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          child: Column(
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(top: 5.0, bottom: 5.0),
-                child: SliderCashBacks(),
-              ),
-              NavigationBar(),
-              Novetly(),
-            ],
-          ),
-        ),
+    bottomNavigationBar: NewBottomAppBar(),
+    floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    floatingActionButton: new FloatingActionButton(
+      onPressed: () => {},
+      elevation: 2,
+      backgroundColor: Colors.red,
+      //foregroundColor: Colors.white,
+      child: SvgPicture.asset(
+        'assets/qrcode.svg',
+        semanticsLabel: 'Scan QRCode',
+        height: 100.0,
+        width: 100.0,
+        fit: BoxFit.cover,
+        color: Colors.black87,
+        allowDrawingOutsideViewBox: true,
       ),
-      floatingActionButtonLocation:
-      FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: new FloatingActionButton(
-        onPressed: () => {},
-        elevation: 2,
-        backgroundColor: Colors.pink,
-        //foregroundColor: Colors.white,
-        child: Icon(Icons.add),
-      ),
-      bottomNavigationBar: new BottomAppBar(
-        shape: CircularNotchedRectangle(),
-        notchMargin: 12.0,
-        child: new Row(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.home,size: 35.0,color: Colors.black54,),
-            Icon(Icons.watch_later,size: 35.0,color: Colors.black54,),
-            Icon(Icons.mail,size: 35.0,color: Colors.black54,),
-            Icon(Icons.account_circle,size: 35.0,color: Colors.black54,)
-          ],
-        ),
-      )
+    )
     );
   }
 }

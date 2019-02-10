@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class NavigationBar extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -9,7 +8,7 @@ class NavigationBar extends StatefulWidget {
   }
 }
 
-class NavigationBarState extends State<NavigationBar>{
+class NavigationBarState extends State<NavigationBar> {
   double fontSize = 20.0;
   @override
   Widget build(BuildContext context) {
@@ -20,108 +19,48 @@ class NavigationBarState extends State<NavigationBar>{
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              Hero(tag: 'eat',
-                child: Column(
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundColor: Colors.orange,
-                      child: Icon(Icons.restaurant_menu,
-                        size: 60.0,
-                      ),
-                      radius: 40.0,
-                    ),
-                  ],
-                )
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 12.0),
-                child: Text('Eat',
-                  style: TextStyle(
-                    fontSize: fontSize,
-                  ),
-                ),
-              )
-            ],
-          ),
-          Column(
-            children: <Widget>[
-              Hero(tag: 'relax',
-                  child: Column(
-                    children: <Widget>[
-                      CircleAvatar(
-                        backgroundColor: Colors.orange,
-                        child: Icon(Icons.beach_access,
-                          size: 60.0,
-                        ),
-                        radius: 40.0,
-                      ),
-                    ],
-                  )
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 12.0),
-                child: Text('Relax',
-                  style: TextStyle(
-                    fontSize: fontSize,
-                  ),
-                ),
-              )
-            ],
-          ),
-          Column(
-            children: <Widget>[
-              Hero(tag: 'shop',
-                child: Column(
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundColor: Colors.orange,
-                      child: Icon(Icons.shopping_basket,
-                        size: 60.0,
-                      ),
-                      radius: 40.0,
-                    ),
-                  ],
-                )
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 12.0),
-                child: Text('Shop',
-                  style: TextStyle(
-                    fontSize: fontSize,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          Column(
-            children: <Widget>[
-              Hero(tag: 'services',
-                child: Column(
-                  children: <Widget>[
-                    CircleAvatar(
-                      backgroundColor: Colors.orange,
-                      child: Icon(Icons.card_travel,
-                        size: 60.0,
-                      ),
-                      radius: 40.0,
-                    ),
-                  ],
-                )
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 12.0),
-                child: Text('Services',
-                  style: TextStyle(
-                    fontSize: fontSize,
-                  ),
-                ),
-              )
-            ],
-          )
+          navigationHero(Icons.restaurant_menu, 'Eat', 20.0, 40.0),
+          navigationHero(Icons.beach_access, 'Relax', 20.0, 40.0),
+          navigationHero(Icons.shopping_basket, 'Shop', 20.0, 40.0),
+          navigationHero(Icons.card_travel, 'Services', 20.0, 40.0),
         ],
       ),
     );
   }
+}
+
+navigationHero(icon, label, fontSize, radius){
+  return Column(
+      children: <Widget>[
+        Hero(
+            tag: label,
+            child: Column(
+              children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(radius)),
+                      border: Border.all(width: 2.0, color: Colors.black54)),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    child: Icon(
+                      icon,
+                      size: radius * 1.5,
+                      color: Colors.black87,
+                    ),
+                    radius: radius,
+                  ),
+                )
+              ],
+            )),
+        Container(
+          padding: EdgeInsets.only(top: 12.0),
+          child: Text(
+            label,
+            style: TextStyle(
+              fontSize: fontSize,
+            ),
+          ),
+        )
+      ],
+  );
 }

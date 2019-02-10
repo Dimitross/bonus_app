@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   carousel_slider: ^1.0.1
   cupertino_icons: ^0.1.2
+  flutter_svg: ^0.10.3
+  path_provider: ^0.5.0+1
 
 dev_dependencies:
   flutter_test:
@@ -19,4 +21,20 @@ dev_dependencies:
 flutter:
 
   uses-material-design: true
-
+  assets:
+  - assets/qrcode.svg
+  - assets/hotcashbacks/File1.jpeg
+  - assets/hotcashbacks/File2.png
+  - assets/hotcashbacks/File3.jpeg
+  - assets/hotcashbacks/File4.jpeg
+  - assets/hotcashbacks/File5.jpeg
+  - assets/hotcashbacks/File6.png
+  - assets/novelty/File1.jpg
+  - assets/novelty/File2.jpg
+  - assets/novelty/File3.jpeg
+  - assets/novelty/File4.jpg
+  - assets/novelty/File5.jpg
+  - assets/novelty/File6.jpg
+  - assets/novelty/File7.jpg
+  - assets/novelty/File7.jpg
+  - assets/novelty/File9.jpg
