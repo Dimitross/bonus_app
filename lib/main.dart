@@ -24,7 +24,6 @@ class StartScreen extends StatefulWidget {
     return StartScreenState();
   }
 }
-
 class StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
